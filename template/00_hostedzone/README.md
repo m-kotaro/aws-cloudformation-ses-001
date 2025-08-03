@@ -9,6 +9,7 @@ DNSおよびドメインの登録と証明書の構築。
 ## 環境変数設定
 
 ```bash
+SYSTEM_CODE= # Your system code
 SYSTEM_ENV=  # Your system environment (e.g., dev, stg, prd, 000, 111)
 DOMAIN_NAME= # Your domain name (e.g., example.com)
 ```
@@ -20,8 +21,8 @@ DOMAIN_NAME= # Your domain name (e.g., example.com)
 ### CloudFormation実行
 
 ```bash
-aws cloudformation create-stack --stack-name stack-ses-$SYSTEM_ENV-hostedzone --template-body file://template/00_hostedzone/01_hostedzone.yml --parameters ParameterKey=SystemEnv,ParameterValue=$SYSTEM_ENV ParameterKey=DomainName,ParameterValue=$DOMAIN_NAME --region us-east-1
-aws cloudformation wait stack-create-complete --stack-name stack-ses-$SYSTEM_ENV-hostedzone --region us-east-1
+aws cloudformation create-stack --stack-name stack-$SYSTEM_CODE-$SYSTEM_ENV-hostedzone --template-body file://template/00_hostedzone/01_hostedzone.yml --parameters ParameterKey=SystemEnv,ParameterValue=$SYSTEM_ENV ParameterKey=DomainName,ParameterValue=$DOMAIN_NAME --region us-east-1
+aws cloudformation wait stack-create-complete --stack-name stack-$SYSTEM_CODE-$SYSTEM_ENV-hostedzone --region us-east-1
 
 ```
 
@@ -30,7 +31,7 @@ aws cloudformation wait stack-create-complete --stack-name stack-ses-$SYSTEM_ENV
 下記コマンドを実行
 
 ```bash
-export HOSTEDZONE_OUTPUTS=$(aws cloudformation describe-stacks --stack-name stack-ses-$SYSTEM_ENV-hostedzone --query "Stacks[0].Outputs" --output json --region us-east-1)
+export HOSTEDZONE_OUTPUTS=$(aws cloudformation describe-stacks --stack-name stack-$SYSTEM_CODE-$SYSTEM_ENV-hostedzone --query "Stacks[0].Outputs" --output json --region us-east-1)
 
 export HOSTEDZONE_ID=$(echo "$HOSTEDZONE_OUTPUTS" | jq -r '.[] | select(.OutputKey=="HostedZoneId") | .OutputValue')
 export HOSTEDZONE_NAME=$(echo "$HOSTEDZONE_OUTPUTS" | jq -r '.[] | select(.OutputKey=="HostedZoneName") | .OutputValue')
