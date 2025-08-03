@@ -45,7 +45,7 @@ CloudShellを起動。
 下記コマンドを実行。
 
 ```bash
-unzip aws-cloudformation-email-uploader-main.zip && cd aws-cloudformation-email-uploader-main
+unzip aws-cloudformation-ses-001-main.zip && cd aws-cloudformation-ses-001-main
 ```
 
 ![](./img/image-upload-template-4.png)

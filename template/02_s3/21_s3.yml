@@ -4,6 +4,7 @@ Description: "S3"
 Parameters:
   SystemCode:
     Type: "String"
+    Default: "ses"
   SystemEnv:
     Type: "String"
 
