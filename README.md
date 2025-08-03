@@ -1,8 +1,8 @@
-# aws-cloudformation-email-uploader
+# aws-cloudformation-ses-001
 
 ## 概要
 
-本テンプレートはEmailにて受信したファイルをストレージに格納し、CDNとして公開するためのシステムです。
+本テンプレートはSES構築用のテンプレートです。
 
 ---
 
@@ -10,17 +10,7 @@
 
 アーキテクチャを下記に記します。
 
-![](./img/email-uploader-architecture.drawio.svg)
-
----
-
-## 処理フロー
-
-大まかな処理のフローを記します。
-
-![](./img/email-uploader-flow.drawio.svg)
-
----
+![](./img/aws-cloudformation-ses-001.drawio.svg)
 
 ## リソース一覧
 
@@ -31,8 +21,6 @@
 | 00  | 00_hostedzone    | ホストゾーン関連          | バージニア北部に構築（コマンドに反映済み） |
 | 01  | 02_s3            | S3バケット関連            | バージニア北部に構築（コマンドに反映済み   |
 | 02  | 03_ses           | SES（メール）設定         |                                            |
-| 03  | 04_cloudfront    | CloudFront設定            | バージニア北部に構築（コマンドに反映済み   |
-| 04  | 05_events-lambda | EventBridge + Lambda 関連 |                                            |
 
 ---
 
@@ -44,5 +32,3 @@
 
 その後各フォルダのReadmeを参照してください。
 
-
-# aws-cloudformation-ses-001
