@@ -9,7 +9,6 @@ DNSおよびドメインの登録と証明書の構築。
 ## 環境変数設定
 
 ```bash
-SYSTEM_CODE="ses"
 SYSTEM_ENV=  # Your system environment (e.g., dev, stg, prd, 000, 111)
 DOMAIN_NAME= # Your domain name (e.g., example.com)
 ```
