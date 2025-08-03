@@ -20,7 +20,7 @@ SYSTEM_ENV=  # Your system environment (e.g., dev, stg, prd, 000, 111)
 ### CloudFormation実行
 
 ```bash
-aws cloudformation create-stack --stack-name stack-$SYSTEM_CODE-$SYSTEM_ENV-s3 --template-body file://template/02_s3/21_s3.yml --parameters ParameterKey=SystemEnv,ParameterValue=$SYSTEM_ENV
+aws cloudformation create-stack --stack-name stack-$SYSTEM_CODE-$SYSTEM_ENV-s3 --template-body file://template/02_s3/21_s3.yml --parameters ParameterKey=SystemCode,ParameterValue=$SYSTEM_CODE ParameterKey=SystemEnv,ParameterValue=$SYSTEM_ENV
 aws cloudformation wait stack-create-complete --stack-name stack-$SYSTEM_CODE-$SYSTEM_ENV-s3
 
 ```
