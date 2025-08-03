@@ -4,7 +4,6 @@ Description: "ACM"
 Parameters:
   SystemCode:
     Type: "String"
-    Default: "ses"
   SystemEnv:
     Type: "String"
 

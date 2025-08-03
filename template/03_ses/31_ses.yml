@@ -4,7 +4,6 @@ Description: SES Email Receiving Setup
 Parameters:
   SystemCode:
     Type: "String"
-    Default: "ses"
   SystemEnv:
     Type: "String"
 

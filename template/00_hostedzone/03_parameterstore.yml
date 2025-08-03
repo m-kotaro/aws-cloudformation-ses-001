@@ -4,7 +4,6 @@ Description: "Parameter for HostedZone info."
 Parameters:
   SystemCode:
     Type: "String"
-    Default: "ses"
   SystemEnv:
     Type: "String"
   HostedZoneId:
