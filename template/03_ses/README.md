@@ -9,6 +9,7 @@
 ## 環境変数設定
 
 ```bash
+SYSTEM_CODE= # Your system code
 SYSTEM_ENV=  # Your system environment (e.g., dev, stg, prd, 000, 111)
 
 ```
